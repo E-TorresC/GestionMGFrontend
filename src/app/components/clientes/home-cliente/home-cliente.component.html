@@ -32,7 +32,8 @@
         
 
         <tbody>
-          <tr *ngFor="let cliente of filtroClientes">
+          <!-- Pipe paginate aplicado aquí -->
+          <tr *ngFor="let cliente of filtroClientes | paginate : {itemsPerPage: 15, currentPage: page}">
             <td>{{ cliente.idCliente }}</td>
             <td>{{ cliente.rucDni }}</td>
             <td >{{ cliente.nombre }}</td>
@@ -49,6 +50,10 @@
       </table>
     </div>
   </div>
+
+  <!-- Controles de paginación -->
+  <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+  </pagination-controls>
 
   <div class="pup-up" [ngClass]="{ 'oculto': modoOculto }">
     <div class="pop-up-container">

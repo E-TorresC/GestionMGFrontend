@@ -20,6 +20,7 @@ import { LoginComponent } from './page/login/login.component';
 import { PageModule } from './page/page.module';
 import { CabfacturaComponent } from './components/facturas/cabfactura/cabfactura.component';
 import { ListaFacturasComponent } from './components/facturas/lista-facturas/lista-facturas.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ListaFacturasComponent } from './components/facturas/lista-facturas/lis
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule
     // PageModule
   ],
   providers: [],

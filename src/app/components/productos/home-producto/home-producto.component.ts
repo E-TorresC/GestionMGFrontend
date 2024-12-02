@@ -12,6 +12,8 @@ export class HomeProductoComponent {
   productosEditar: any;
   filtroProductos: any;
   modoOculto: boolean = true;
+  page: number = 1; // Página inicial para la paginación
+
   constructor(private productoService: ProductoService) {
   }
   ngOnInit() {
@@ -48,6 +50,9 @@ export class HomeProductoComponent {
       persona.activo.toString().includes(input.value.toLowerCase())
     );
     console.log(this.filtroProductos)
+
+    // Reiniciar la página a la primera después de una búsqueda
+    this.page = 1;
   }
 
   toggleModoEdicion(persona: any) {

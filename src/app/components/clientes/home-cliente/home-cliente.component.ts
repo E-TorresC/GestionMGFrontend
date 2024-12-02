@@ -11,6 +11,8 @@ export class HomeClienteComponent {
   personaEditar: any;
   filtroClientes: any;
   modoOculto: boolean = true;
+  page: number = 1; // Página inicial para la paginación
+
   constructor(private clientesService: ClientesService) {
   }
   ngOnInit() {
@@ -21,6 +23,7 @@ export class HomeClienteComponent {
     this.clientesService.getData().subscribe(data => {
       this.clientes = data;
       this.filtroClientes = data;
+      this.filtroClientes = data; // Inicialmente la lista completa
       
     })
   }
@@ -47,6 +50,9 @@ export class HomeClienteComponent {
       cleinte.correo.toLowerCase().includes(input.value.toLowerCase())
     );
     console.log(this.filtroClientes)
+
+    // Reiniciar la página a la primera después de una búsqueda
+    this.page = 1;
   }
 
   toggleModoEdicion(persona: any) {
